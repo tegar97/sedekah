@@ -3,11 +3,11 @@ package com.tegar.sedekah.ui.favorite
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.tegar.sedekah.core.domain.usecase.CampaignUseCase
 
-class FavoriteViewModel : ViewModel() {
+class FavoriteCampaignViewModel(private val campaignUseCase: CampaignUseCase) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    val text: LiveData<String> = _text
+    val favoriteCampaign = campaignUseCase.getFavoriteCampaign().asLiveData()
+
 }

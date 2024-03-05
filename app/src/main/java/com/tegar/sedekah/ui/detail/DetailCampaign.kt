@@ -61,7 +61,7 @@ class DetailCampaign : AppCompatActivity() {
                 .into(binding.campaignImage)
 
             var statusFavorite = detailCampaign.isFavorite
-                setStatusFavorite(statusFavorite)
+            setStatusFavorite(statusFavorite)
             binding.fabFavorite.setOnClickListener {
                 statusFavorite = !statusFavorite ?: false
                 detailCampaignViewModel.setFavoriteCampaign(detailCampaign, statusFavorite)

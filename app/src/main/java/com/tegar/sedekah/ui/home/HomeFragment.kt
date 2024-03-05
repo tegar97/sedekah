@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
         })
 
 
-        val articleAdapter = CampaignAdapter()
+        val articleAdapter =  CampaignAdapter(CampaignAdapter.Mode.HORIZONTAL)
         articleAdapter.onItemClick = { selectedData ->
             val intent = Intent(activity, DetailCampaign::class.java)
             intent.putExtra(DetailCampaign.CAMPAIGN_DATA, selectedData)
