@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">sedekah</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_history_transaction">Donasiku</string>
+    <string name="title_profile">Profile</string>
+    <string name="section_urgent_title">Penggalangan Mendesak</string>
+    <string name="something_wrong">Ups Something wrong</string>
+    <string name="no_data">No data found</string>
+    <string name="campaign_backgrund_text">Campaign Backgrund</string>
+
+
+    <string name="campaign_detail_title_dummy">Dukung busa pustaka bergerak untuk anak</string>
+    <string name="campaign_detail_fund_collected_dummy"> Rp.78.087.372</string>
+    <string name="campaign_detail_fund_collected_from_dummy">  Rp150.000.000</string>
+    <string name="campaign_detail_description_dummy"> Kami mengajak Anda untuk bergabung dalam misi kami untuk membawa keceriaan belajar kepada anak-anak yang membutuhkan. Busa Pustaka Bergerak adalah inisiatif yang membawa buku-buku berkualitas dan kegiatan literasi ke komunitas-komunitas yang terpencil, termasuk desa-desa terpencil dan daerah terpinggirkan di sekitar kita.</string>
+    <string name="terkumpul_dari_text">Terkumpul dari</string>
+    <string name="description_constant_text">Deskripsi</string>
+
+
+</resources>

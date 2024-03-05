@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="item_campaign_title_text">Judul</string>
+    <string name="item_campaign_description_text">Deskripsi</string>
+    <string name="dummay_fund_collected">Rp.150,0000</string>
+    <string name="terkumpul">Terkumpul</string>
+</resources>
