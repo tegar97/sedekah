@@ -8,6 +8,7 @@ import com.tegar.sedekah.core.data.remote.network.ApiService
 import com.tegar.sedekah.core.data.repository.CampaignRepository
 import com.tegar.sedekah.core.domain.repository.ICampaignRepository
 import com.tegar.sedekah.core.utils.AppExecutors
+import com.tegar.sedekah.core.utils.SettingPreferences
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -15,6 +16,11 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import android.content.Context
+import androidx.datastore.core.DataStore
+import com.tegar.sedekah.core.domain.prefence.IThemePrefence
+import com.tegar.sedekah.core.utils.dataStore
+import java.util.prefs.Preferences
 
 val databaseModule = module {
     factory { get<SedekahDatabase>().campaignDao() }
@@ -41,6 +47,12 @@ val networkModule = module {
             .client(get())
             .build()
         retrofit.create(ApiService::class.java)
+    }
+}
+
+val settingPreferencesModule = module {
+    single{
+        SettingPreferences(androidContext().dataStore)
     }
 }
 

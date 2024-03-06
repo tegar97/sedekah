@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "sedekah"
 include(":app")
 include(":core")
+include(":Favorite")

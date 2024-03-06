@@ -1,4 +1,4 @@
-package com.tegar.sedekah.ui.favorite
+package com.tegar.sedekah.favorite
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -4,6 +4,7 @@ import android.app.Application
 import com.tegar.sedekah.core.di.databaseModule
 import com.tegar.sedekah.core.di.networkModule
 import com.tegar.sedekah.core.di.repositoryModule
+import com.tegar.sedekah.core.di.settingPreferencesModule
 import com.tegar.sedekah.di.useCaseModule
 import com.tegar.sedekah.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -19,11 +20,14 @@ class MyApplication : Application(){
             androidContext(this@MyApplication)
             modules(
                 listOf(
+
                     databaseModule,
                     networkModule,
                     repositoryModule,
+                    settingPreferencesModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+
                 )
             )
         }
