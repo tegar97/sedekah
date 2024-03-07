@@ -18,8 +18,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import android.content.Context
 import androidx.datastore.core.DataStore
+import com.tegar.sedekah.core.data.repository.AuthRepository
 import com.tegar.sedekah.core.domain.prefence.IThemePrefence
+import com.tegar.sedekah.core.domain.repository.IAuthRepository
 import com.tegar.sedekah.core.utils.dataStore
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import okhttp3.Interceptor
 import java.util.prefs.Preferences
 
 val databaseModule = module {
@@ -33,9 +38,28 @@ val databaseModule = module {
 }
 
 val networkModule = module {
+    factory<Interceptor> {
+        Interceptor { chain ->
+            val req = chain.request()
+
+            val token = runBlocking {
+                get<IAuthRepository>().getSession().first().token
+            }
+
+            val requestHeaders = if (token?.isNotBlank() == true) {
+                req.newBuilder()
+                    .addHeader("Authorization", token)
+                    .build()
+            } else {
+                req
+            }
+            chain.proceed(requestHeaders)
+        }
+    }
     single {
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(get<Interceptor>())
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .build()
@@ -51,7 +75,7 @@ val networkModule = module {
 }
 
 val settingPreferencesModule = module {
-    single{
+    single {
         SettingPreferences(androidContext().dataStore)
     }
 }
@@ -66,5 +90,9 @@ val repositoryModule = module {
             get(),
             get()
         )
+    }
+    single<IAuthRepository> {
+        AuthRepository(get() , androidContext().dataStore)
+
     }
 }

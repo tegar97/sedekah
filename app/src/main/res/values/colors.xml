@@ -14,4 +14,8 @@
     <color name="black_100">#FF4D4D4D</color>
     <color name="gray">#FF393939</color>
     <color name="gray_100"> #FFF3F3F6</color>
+    <color name="gray_50">#FFA1A1A1</color>
+
+
+    <color name="textColor">#FF0A0A0A</color>
 </resources>

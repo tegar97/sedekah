@@ -96,8 +96,7 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = articleAdapter
         }
-//        val marginOffset = resources.getDimensionPixelOffset(R.dimen.margin_offset) // Sesuaikan dengan nilai yang Anda inginkan
-//        binding.bannerViewPager.setPageTransformer(ViewPagerMarginPageTransformer(marginOffset))
+
 
 
     }
