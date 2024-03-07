@@ -13,7 +13,6 @@ interface ICampaignRepository {
 
     fun setFavoriteCampaign(article: Campaign, state: Boolean)
 
-    fun donate(idDonate: Int, amount: Int) : Flow<Resource<DonateItem>>
 
 
 

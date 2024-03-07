@@ -12,7 +12,6 @@ class CampaignInteractor(private val campaignRepository : ICampaignRepository) :
     override fun setFavoriteCampaign(article: Campaign, state: Boolean) = campaignRepository.setFavoriteCampaign(article,state)
 
 
-    override fun donate(idDonate : Int, amount: Int) = campaignRepository.donate(idDonate,amount)
 
 
 }

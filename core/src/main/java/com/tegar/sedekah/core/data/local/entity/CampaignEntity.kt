@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "campaigns") // Tentukan nama tabel database
+@Entity(tableName = "campaigns")
 data class CampaignEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,

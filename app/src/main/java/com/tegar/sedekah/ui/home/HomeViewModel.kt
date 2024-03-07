@@ -8,6 +8,6 @@ import com.tegar.sedekah.core.domain.usecase.CampaignUseCase
 
 class HomeViewModel(campaignUseCase: CampaignUseCase): ViewModel() {
 
-    val articles = campaignUseCase.getAllCampaign().asLiveData()
+    val campaigns = campaignUseCase.getAllCampaign().asLiveData()
 
 }

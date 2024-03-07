@@ -7,7 +7,6 @@ import com.tegar.sedekah.core.data.remote.RemoteDataSource
 import com.tegar.sedekah.core.data.remote.network.ApiResponse
 import com.tegar.sedekah.core.data.remote.response.CampaignResponse
 import com.tegar.sedekah.core.domain.model.Campaign
-import com.tegar.sedekah.core.domain.model.DonateItem
 import com.tegar.sedekah.core.domain.repository.ICampaignRepository
 import com.tegar.sedekah.core.utils.AppExecutors
 import com.tegar.sedekah.core.utils.toDomain
@@ -29,8 +28,7 @@ class CampaignRepository(
             }
 
             override fun shouldFetch(data: List<Campaign>?): Boolean =
-//                data == null || data.isEmpty()
-                true
+                data == null || data.isEmpty()
 
             override suspend fun createCall(): Flow<ApiResponse<List<CampaignResponse>>> =
                 remoteDataSource.getAllCampaign()
@@ -54,26 +52,7 @@ class CampaignRepository(
 
     }
 
-    override fun donate(idDonate: Int, amount: Int)  : Flow<Resource<DonateItem>> {
-        return remoteDataSource.donate(idDonate, amount).map { apiResponse ->
-            when (apiResponse) {
-                is ApiResponse.Success -> {
-                    val data = apiResponse.data.toDomain()
-                    Resource.Success(data)
-                }
-
-                is ApiResponse.Error -> {
-                    Resource.Error(apiResponse.errorMessage)
-                }
-
-                else -> {
-                    Resource.Loading()
-                }
-            }
-
-        }
 
 
-    }
 
 }

@@ -1,28 +1,26 @@
 package com.tegar.sedekah.ui.home
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.appbar.AppBarLayout
 import com.tegar.sedekah.R
 import com.tegar.sedekah.core.data.Resource
+import com.tegar.sedekah.core.data.local.dummy.bannerList
+import com.tegar.sedekah.core.domain.model.Campaign
 import com.tegar.sedekah.core.ui.CampaignAdapter
 import com.tegar.sedekah.databinding.FragmentHomeBinding
 import com.tegar.sedekah.ui.adapter.BannerAdapter
-import com.tegar.sedekah.ui.adapter.bannerList
 import com.tegar.sedekah.ui.detail.DetailCampaign
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import kotlin.math.abs
@@ -53,18 +51,70 @@ class HomeFragment : Fragment() {
 
 
         init()
-        setUpTransformer()
+        setupBannerViewPager()
+        setupCampaignRecyclerView()
+        observeCampaign()
 
-        // Set adapter untuk bannerViewPager
-        binding.bannerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+
+
+
+
+
+
+
+
+
+    }
+
+    private fun setupBannerViewPager() {
+        binding.bannerViewPager.adapter = BannerAdapter(bannerList)
+        binding.bannerViewPager.offscreenPageLimit = 3
+        binding.bannerViewPager.clipToPadding = false
+        binding.bannerViewPager.clipChildren = false
+        binding.bannerViewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        binding.bannerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 handler.removeCallbacks(runnable)
-                handler.postDelayed(runnable , 2000)
+                handler.postDelayed(runnable, 2000)
             }
         })
+        setUpTransformer()
+    }
+
+    private val runnable = Runnable {
+        binding.bannerViewPager.currentItem = binding.bannerViewPager.currentItem + 1
+    }
+    private fun init() {
+        handler = Handler(Looper.myLooper()!!)
 
 
+
+
+
+    }
+
+    private fun setupCampaignRecyclerView() {
+        with(binding.rvCampaign) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            adapter = CampaignAdapter(CampaignAdapter.Mode.HORIZONTAL).apply {
+                onItemClick = { selectedData ->
+                    val intent = Intent(activity, DetailCampaign::class.java)
+                    intent.putExtra(DetailCampaign.CAMPAIGN_DATA, selectedData)
+                    startActivity(intent)
+                }
+            }
+        }
+    }
+
+    private fun observeCampaign() {
+        homeViewModel.campaigns.observe(viewLifecycleOwner) { campaigns ->
+            handleCampaignResource(campaigns)
+        }
+    }
+
+    private fun handleCampaignResource(campaigns: Resource<List<Campaign>>) {
         val articleAdapter =  CampaignAdapter(CampaignAdapter.Mode.HORIZONTAL)
         articleAdapter.onItemClick = { selectedData ->
             val intent = Intent(activity, DetailCampaign::class.java)
@@ -72,22 +122,16 @@ class HomeFragment : Fragment() {
             startActivity(intent)
 
         }
-        homeViewModel.articles.observe(viewLifecycleOwner) { article ->
-            if (article != null) {
-                when (article) {
-                    is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
-                    is Resource.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        articleAdapter.setData(article.data)
-                    }
-
-                    is Resource.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        binding.viewError.root.visibility = View.VISIBLE
-                        binding.viewError.tvError.text =
-                            article.message ?: getString(R.string.something_wrong)
-                    }
-                }
+        when (campaigns) {
+            is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
+            is Resource.Success -> {
+                binding.progressBar.visibility = View.GONE
+                articleAdapter.setData(campaigns.data)
+            }
+            is Resource.Error -> {
+                binding.progressBar.visibility = View.GONE
+                binding.viewError.root.visibility = View.VISIBLE
+                binding.viewError.tvError.text = campaigns.message ?: getString(R.string.something_wrong)
             }
         }
 
@@ -96,25 +140,9 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = articleAdapter
         }
-
-
-
     }
-    private val runnable = Runnable {
-        binding.bannerViewPager.currentItem = binding.bannerViewPager.currentItem + 1
-    }
-    private fun init() {
-        binding.bannerViewPager.adapter = BannerAdapter(bannerList)
-        handler = Handler(Looper.myLooper()!!)
-
-        binding.bannerViewPager.offscreenPageLimit = 3
-        binding.bannerViewPager.clipToPadding = false
-        binding.bannerViewPager.clipChildren = false
-        binding.bannerViewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
 
-
-    }
     private fun setUpTransformer(){
         val transformer = CompositePageTransformer()
         transformer.addTransformer(MarginPageTransformer(40))

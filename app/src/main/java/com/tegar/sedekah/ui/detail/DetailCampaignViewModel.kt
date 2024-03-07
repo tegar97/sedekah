@@ -10,6 +10,5 @@ class DetailCampaignViewModel(private val campaignUseCase: CampaignUseCase) : Vi
         campaignUseCase.setFavoriteCampaign(article, newStatus)
 
 
-    fun donate(idCampaign : Int  , amount : Int ) =
-        campaignUseCase.donate(idCampaign , amount).asLiveData()
+
 }

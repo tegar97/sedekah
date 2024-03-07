@@ -13,10 +13,7 @@
         android:icon="@drawable/ic_favorite_black_24dp"
         android:title="@string/title_favorite" />
 
-    <item
-        android:id="@+id/navigation_history_transaction"
-        android:icon="@drawable/ic_history_transaction_black_24dp"
-        android:title="@string/title_history_transaction" />
+
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_profile_black"

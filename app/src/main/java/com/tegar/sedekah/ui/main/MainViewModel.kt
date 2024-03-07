@@ -3,7 +3,7 @@ package com.tegar.sedekah.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.tegar.sedekah.core.utils.SettingPreferences
+import com.tegar.sedekah.core.data.local.prefence.SettingPreferences
 
 class MainViewModel(private val pref: SettingPreferences) : ViewModel() {
 

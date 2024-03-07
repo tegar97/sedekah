@@ -8,7 +8,7 @@ import com.tegar.sedekah.core.data.remote.network.ApiService
 import com.tegar.sedekah.core.data.repository.CampaignRepository
 import com.tegar.sedekah.core.domain.repository.ICampaignRepository
 import com.tegar.sedekah.core.utils.AppExecutors
-import com.tegar.sedekah.core.utils.SettingPreferences
+import com.tegar.sedekah.core.data.local.prefence.SettingPreferences
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -16,16 +16,12 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import android.content.Context
-import androidx.datastore.core.DataStore
 import com.tegar.sedekah.core.data.repository.AuthRepository
-import com.tegar.sedekah.core.domain.prefence.IThemePrefence
 import com.tegar.sedekah.core.domain.repository.IAuthRepository
-import com.tegar.sedekah.core.utils.dataStore
+import com.tegar.sedekah.core.data.local.prefence.dataStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
-import java.util.prefs.Preferences
 
 val databaseModule = module {
     factory { get<SedekahDatabase>().campaignDao() }

@@ -1,4 +1,4 @@
-package com.tegar.sedekah.core.domain.prefence
+package com.tegar.sedekah.core.data.local.prefence
 
 import kotlinx.coroutines.flow.Flow
 

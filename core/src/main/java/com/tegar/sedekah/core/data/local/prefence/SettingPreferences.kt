@@ -1,4 +1,4 @@
-package com.tegar.sedekah.core.utils
+package com.tegar.sedekah.core.data.local.prefence
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -6,14 +6,13 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
-import com.tegar.sedekah.core.domain.prefence.IThemePrefence
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 private val readOnlyProperty = preferencesDataStore( "access")
 
 val Context.dataStore: DataStore<Preferences> by readOnlyProperty
 
-class SettingPreferences(private val dataStore: DataStore<Preferences>) : IThemePrefence  {
+class SettingPreferences(private val dataStore: DataStore<Preferences>) : IThemePrefence {
 
     private val THEME_KEY = booleanPreferencesKey("theme_setting")
 

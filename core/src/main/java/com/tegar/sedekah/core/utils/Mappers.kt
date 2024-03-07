@@ -2,7 +2,6 @@ package com.tegar.sedekah.core.utils
 
 import com.tegar.sedekah.core.data.local.entity.CampaignEntity
 import com.tegar.sedekah.core.data.remote.response.CampaignResponse
-import com.tegar.sedekah.core.data.remote.response.DonateItemResponse
 import com.tegar.sedekah.core.data.remote.response.LoginResponse
 import com.tegar.sedekah.core.data.remote.response.UserResponse
 import com.tegar.sedekah.core.domain.model.Campaign
@@ -35,15 +34,7 @@ fun UserResponse.toDomain() : User{
     )
 }
 
-fun DonateItemResponse.toDomain() : DonateItem {
-    return DonateItem(
-        date = date,
-        amount= amount,
-        user = user.toDomain(),
-        campaign = campaign.toDomain()
 
-    )
-}
 fun User.toModel() : UserResponse{
     return UserResponse(
         name = name,

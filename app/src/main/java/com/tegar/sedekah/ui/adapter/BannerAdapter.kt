@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.tegar.sedekah.R
+import com.tegar.sedekah.core.domain.model.Banner
 
-class BannerAdapter(private val bannerListItem: List<BannerModel>) : RecyclerView.Adapter<BannerViewHolder>(){
+class BannerAdapter(private val bannerListItem: List<Banner>) : RecyclerView.Adapter<BannerViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_item_layout, parent, false)
@@ -33,7 +34,7 @@ class BannerAdapter(private val bannerListItem: List<BannerModel>) : RecyclerVie
 class BannerViewHolder(private val view: View): RecyclerView.ViewHolder(view){
     val bannerImageView: ImageView = view.findViewById(R.id.banner_image_view)
 
-    fun bind(bannerItem: BannerModel){
+    fun bind(bannerItem: Banner){
         Glide.with(view.context)
             .load(bannerItem.imageUrl)
             .into(bannerImageView)

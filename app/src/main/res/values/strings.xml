@@ -36,5 +36,6 @@
     <string name="register_btn_text">Daftar</string>
     <string name="donasi_sekarang">Donasi Sekarang</string>
     <string name="donate_example">Ex 150000</string>
+    <string name="add_to_favorite">Add to favorite</string>
 
 </resources>

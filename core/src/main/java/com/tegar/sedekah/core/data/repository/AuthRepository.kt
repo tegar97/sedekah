@@ -26,38 +26,22 @@ class AuthRepository(
         return remoteDataSource.login(email, password)
             .map { apiResponse ->
                 when (apiResponse) {
-                    is ApiResponse.Success -> {
-                        val user = apiResponse.data.toDomain()
-                        Resource.Success(user)
-                    }
-
-                    is ApiResponse.Error -> {
-                        Resource.Error(apiResponse.errorMessage)
-                    }
-
-                    else -> {
-                        Resource.Loading()
-                    }
+                    is ApiResponse.Success -> Resource.Success(apiResponse.data.toDomain())
+                    is ApiResponse.Error -> Resource.Error(apiResponse.errorMessage)
+                    else -> Resource.Loading()
                 }
             }
     }
-
     override fun register(name: String, email: String, password: String): Flow<Resource<User>> {
         return remoteDataSource.register(name,email, password)
             .map { apiResponse ->
                 when (apiResponse) {
-                    is ApiResponse.Success -> {
-                        val user = apiResponse.data.toDomain()
-                        Resource.Success(user)
-                    }
+                    is ApiResponse.Success -> Resource.Success(apiResponse.data.toDomain())
 
-                    is ApiResponse.Error -> {
-                        Resource.Error(apiResponse.errorMessage)
-                    }
+                    is ApiResponse.Error ->  Resource.Error(apiResponse.errorMessage)
 
-                    else -> {
-                        Resource.Loading()
-                    }
+                    else -> Resource.Loading()
+
                 }
             }
     }
@@ -69,8 +53,8 @@ class AuthRepository(
             preferences[NAME] = userModel.name
             preferences[EMAIL] = userModel.email
         }
-        Log.d("save_to_prefence", "true")
     }
+
 
     override fun getSession(): Flow<User> {
         return dataStore.data.map { preferences ->
