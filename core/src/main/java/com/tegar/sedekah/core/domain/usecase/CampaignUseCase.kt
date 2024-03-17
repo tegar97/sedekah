@@ -2,7 +2,6 @@ package com.tegar.sedekah.core.domain.usecase
 
 import com.tegar.sedekah.core.data.Resource
 import com.tegar.sedekah.core.domain.model.Campaign
-import com.tegar.sedekah.core.domain.model.DonateItem
 import kotlinx.coroutines.flow.Flow
 
 interface CampaignUseCase {

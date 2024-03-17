@@ -1,18 +1,16 @@
 package com.tegar.sedekah.ui.auth.register
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.tegar.sedekah.R
 import com.tegar.sedekah.core.data.Resource
-import com.tegar.sedekah.databinding.ActivityLoginBinding
 import com.tegar.sedekah.databinding.ActivityRegisterBinding
 import com.tegar.sedekah.ui.auth.login.LoginActivity
-import com.tegar.sedekah.ui.auth.login.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterActivity : AppCompatActivity() {
@@ -96,7 +94,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val intent = Intent(this, LoginActivity::class.java)
 
-        registerViewModel.register(name, email, password).observe(this) { it ->
+        registerViewModel.register(name, email, password).observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     binding.btnRegister.isEnabled = false

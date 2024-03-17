@@ -8,38 +8,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingHorizontal="16dp"
     tools:context=".ui.home.HomeFragment">
 
-    <!--    <com.google.android.material.appbar.AppBarLayout-->
-    <!--        android:id="@+id/appbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    <!--        <androidx.appcompat.widget.Toolbar-->
-    <!--            android:id="@+id/toolbar"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="?attr/actionBarSize"-->
-    <!--            app:layout_scrollFlags="scroll|enterAlways"-->
-    <!--            app:popupTheme="@style/AppTheme.PopupOverlay">-->
-
-    <!--            <androidx.appcompat.widget.SearchView-->
-    <!--                android:id="@+id/search_bar"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_marginEnd="8dp"-->
-    <!--                android:background="@android:color/transparent"-->
-    <!--                android:imeOptions="actionSearch" />-->
-
-    <!--        </androidx.appcompat.widget.Toolbar>-->
-
-    <!--    </com.google.android.material.appbar.AppBarLayout>-->
 
 
     <LinearLayout
@@ -60,15 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <com.google.android.material.tabs.TabLayout-->
-        <!--            android:id="@+id/tab_layout"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="8dp"-->
-        <!--            app:tabIndicatorHeight="0dp"-->
-        <!--            app:tabGravity="center"-->
-        <!--            app:tabMode="fixed"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/banner_view_pager"/>-->
+
 
     </LinearLayout>
 
@@ -80,8 +45,7 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/section_urgent_title"
         android:textSize="16sp"
-        android:textColor="@color/black_200"
-
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 

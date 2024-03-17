@@ -44,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/campaign_detail_title_dummy"
-                android:textColor="@color/black_200"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
                 android:textSize="18sp" />
 
             <TextView
@@ -74,17 +75,20 @@
                     android:layout_marginEnd="4dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/terkumpul_dari_text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
 
-                    android:textColor="@color/black_200" />
+                  />
 
                 <TextView
                     android:id="@+id/fund_target"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@string/campaign_detail_fund_collected_from_dummy"
-                    android:textColor="@color/black_200" />
+                 />
             </LinearLayout>
 
             <ProgressBar
@@ -121,8 +125,9 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/campaign_detail_description_dummy"
 
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
 
-                android:textColor="@color/black_100" />
+              />
 
 
         </LinearLayout>
@@ -133,6 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+
         android:text="@string/donasi_sekarang"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

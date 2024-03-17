@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">sedekah</string>
-    <string name="title_home">Home</string>
-    <string name="title_favorite">Favorite</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_favorite">Favorit</string>
     <string name="title_history_transaction">Donasiku</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_profile">Profil</string>
     <string name="section_urgent_title">Penggalangan Mendesak</string>
-    <string name="something_wrong">Ups Something wrong</string>
-    <string name="no_data">No data found</string>
-    <string name="campaign_backgrund_text">Campaign Backgrund</string>
-
+    <string name="something_wrong">Ups Ada yang salah</string>
+    <string name="no_data">Tidak ada data ditemukan</string>
+    <string name="campaign_backgrund_text">Latar Belakang Kampanye</string>
 
     <string name="campaign_detail_title_dummy">Dukung busa pustaka bergerak untuk anak</string>
     <string name="campaign_detail_fund_collected_dummy"> Rp.78.087.372</string>
@@ -16,26 +15,27 @@
     <string name="campaign_detail_description_dummy"> Kami mengajak Anda untuk bergabung dalam misi kami untuk membawa keceriaan belajar kepada anak-anak yang membutuhkan. Busa Pustaka Bergerak adalah inisiatif yang membawa buku-buku berkualitas dan kegiatan literasi ke komunitas-komunitas yang terpencil, termasuk desa-desa terpencil dan daerah terpinggirkan di sekitar kita.</string>
     <string name="terkumpul_dari_text">Terkumpul dari</string>
     <string name="description_constant_text">Deskripsi</string>
-    <string name="dark_mode">Dark mode</string>
+    <string name="dark_mode">Mode Gelap</string>
+    <string name="banner_description_image">Banner image </string>
 
-    <string name="email">Enter your email</string>
-    <string name="dont_have_account_text">Dont have an account? Register now</string>
-    <string name="btn_login_text">Login</string>
-    <string name="welcome_heading_text">Welcome back, fellas</string>
-    <string name="name_hint">Enter your name</string>
-    <string name="email_hint">Enter your Email</string>
-    <string name="password_hint">Enter your password</string>
-    <string name="logout_text">Logout</string>
-    <string name="setting_text">Setting</string>
-    <string name="password_min_length_error">Password must not be less than 8 characters</string>
-    <string name="email_not_valid_error">Invalid email format</string>
-    <string name="loading">Loading ...</string>
-    <string name="login_success">Login Success</string>
-    <string name="have_account_text">Punya akun ? Login sekarang</string>
-    <string name="name_label">Masukan nama anda</string>
+    <string name="email">Masukkan email Anda</string>
+    <string name="dont_have_account_text">Belum memiliki akun? Daftar sekarang</string>
+    <string name="btn_login_text">Masuk</string>
+    <string name="welcome_heading_text">Selamat datang kembali, teman</string>
+    <string name="name_hint">Masukkan nama Anda</string>
+    <string name="email_hint">Masukkan email Anda</string>
+    <string name="password_hint">Masukkan kata sandi Anda</string>
+    <string name="logout_text">Keluar</string>
+    <string name="setting_text">Pengaturan</string>
+    <string name="password_min_length_error">Kata sandi harus memiliki minimal 8 karakter</string>
+    <string name="email_not_valid_error">Format email tidak valid</string>
+    <string name="loading">Memuat ...</string>
+    <string name="login_success">Login Berhasil</string>
+    <string name="have_account_text">Sudah punya akun? Masuk sekarang</string>
+    <string name="name_label">Masukkan nama Anda</string>
     <string name="register_btn_text">Daftar</string>
     <string name="donasi_sekarang">Donasi Sekarang</string>
-    <string name="donate_example">Ex 150000</string>
-    <string name="add_to_favorite">Add to favorite</string>
+    <string name="donate_example">Contoh: 150000</string>
+    <string name="add_to_favorite">Tambahkan ke favorit</string>
 
 </resources>

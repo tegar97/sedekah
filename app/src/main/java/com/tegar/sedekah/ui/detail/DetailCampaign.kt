@@ -55,6 +55,7 @@ class DetailCampaign : AppCompatActivity() {
             supportActionBar?.title = detailCampaign.judul
 
             idCampaign = detailCampaign.id.toInt()
+            binding.campaignTitle.text = detailCampaign.judul
             binding.fundTarget.text = detailCampaign.targetDonasi.toRupiah()
             binding.campaignDescription.text = detailCampaign.deskripsi
             binding.campaignFundCollected.text = detailCampaign.danaTerkumpul?.toRupiah()

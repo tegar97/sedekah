@@ -1,9 +1,7 @@
 package com.tegar.sedekah.core.domain.usecase
 
-import com.tegar.sedekah.core.data.Resource
 import com.tegar.sedekah.core.domain.model.Campaign
 import com.tegar.sedekah.core.domain.repository.ICampaignRepository
-import kotlinx.coroutines.flow.Flow
 
 class CampaignInteractor(private val campaignRepository : ICampaignRepository) : CampaignUseCase{
     override fun getAllCampaign() = campaignRepository.getAllCampaign()

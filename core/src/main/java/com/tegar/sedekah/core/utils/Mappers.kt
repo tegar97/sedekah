@@ -2,17 +2,15 @@ package com.tegar.sedekah.core.utils
 
 import com.tegar.sedekah.core.data.local.entity.CampaignEntity
 import com.tegar.sedekah.core.data.remote.response.CampaignResponse
-import com.tegar.sedekah.core.data.remote.response.LoginResponse
 import com.tegar.sedekah.core.data.remote.response.UserResponse
 import com.tegar.sedekah.core.domain.model.Campaign
-import com.tegar.sedekah.core.domain.model.DonateItem
 import com.tegar.sedekah.core.domain.model.User
 
 // Convert Response to Entity
 fun CampaignResponse.toEntity(): CampaignEntity {
     return CampaignEntity(
         id = id,
-        judul = judul, // Assuming 'judul' maps to 'title'
+        judul = judul,
         deskripsi = deskripsi,
         cerita = cerita,
         tanggalMulai = tanggalMulai,
@@ -41,22 +39,6 @@ fun User.toModel() : UserResponse{
         id = id,
         email = email,
         token = token ?: ""
-    )
-}
-
-fun CampaignResponse.toDomain(): Campaign {
-    return Campaign(
-        id = id,
-        judul = judul,
-        deskripsi = deskripsi,
-        cerita = cerita,
-        tanggalMulai = tanggalMulai,
-        tanggalSelesai = tanggalSelesai,
-        foto = foto,
-        danaTerkumpul = danaTerkumpul,
-        targetDonasi = targetDonasi,
-        kategori = kategori,
-        isFavorite = false
     )
 }
 

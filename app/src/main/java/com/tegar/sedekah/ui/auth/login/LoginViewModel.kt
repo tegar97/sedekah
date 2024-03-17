@@ -5,7 +5,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.tegar.sedekah.core.domain.model.User
 import com.tegar.sedekah.core.domain.usecase.AuthUseCase
-import com.tegar.sedekah.core.domain.usecase.CampaignUseCase
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val authUseCase: AuthUseCase) : ViewModel() {

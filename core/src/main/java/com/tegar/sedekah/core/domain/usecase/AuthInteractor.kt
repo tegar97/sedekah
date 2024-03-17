@@ -1,12 +1,9 @@
 package com.tegar.sedekah.core.domain.usecase
 
-import com.tegar.sedekah.core.data.Resource
-import com.tegar.sedekah.core.data.repository.AuthRepository
-import com.tegar.sedekah.core.domain.model.Campaign
+
 import com.tegar.sedekah.core.domain.model.User
 import com.tegar.sedekah.core.domain.repository.IAuthRepository
-import com.tegar.sedekah.core.domain.repository.ICampaignRepository
-import kotlinx.coroutines.flow.Flow
+
 
 class AuthInteractor(private val authRepository: IAuthRepository ) : AuthUseCase {
     override fun login(email: String, password: String) = authRepository.login(email, password)

@@ -1,7 +1,6 @@
 package com.tegar.sedekah.ui.detail
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import com.tegar.sedekah.core.domain.model.Campaign
 import com.tegar.sedekah.core.domain.usecase.CampaignUseCase
 

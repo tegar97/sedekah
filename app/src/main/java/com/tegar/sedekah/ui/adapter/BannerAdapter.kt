@@ -1,12 +1,10 @@
 package com.tegar.sedekah.ui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.tegar.sedekah.R
 import com.tegar.sedekah.core.domain.model.Banner

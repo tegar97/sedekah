@@ -18,6 +18,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getAllCampaign(): Flow<ApiResponse<List<CampaignResponse>>> {
         //get data from remote api
         return flow {
+
             try {
                 val response = apiService.getCampaignList()
                 val dataArray = response.data
@@ -35,6 +36,8 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     fun login(email: String, password: String): Flow<ApiResponse<UserResponse>> =
         flow {
+            emit(ApiResponse.Empty)
+
             try {
                 val client = apiService.login(email, password).data
                 emit(ApiResponse.Success(client))
@@ -49,6 +52,8 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     fun register(name : String , email: String, password: String): Flow<ApiResponse<UserResponse>> =
         flow {
+            emit(ApiResponse.Empty)
+
             try {
                 val client = apiService.register(name,email, password).data
                 emit(ApiResponse.Success(client))
