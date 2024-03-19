@@ -21,15 +21,20 @@ import com.tegar.sedekah.core.domain.repository.IAuthRepository
 import com.tegar.sedekah.core.data.local.prefence.dataStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.Interceptor
 
 val databaseModule = module {
     factory { get<SedekahDatabase>().campaignDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("sedekah".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             SedekahDatabase::class.java, "sedekah.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory).build()
     }
 }
 
@@ -62,7 +67,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://103.37.124.74:3000/")
+            .baseUrl("https://sedekah.akutegar.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
@@ -88,7 +93,7 @@ val repositoryModule = module {
         )
     }
     single<IAuthRepository> {
-        AuthRepository(get() , androidContext().dataStore)
+        AuthRepository(get(), androidContext().dataStore)
 
     }
 }

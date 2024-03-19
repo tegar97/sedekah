@@ -59,8 +59,8 @@ class CampaignAdapter(private val mode: Mode) : RecyclerView.Adapter<CampaignAda
                     .into(imageView)
                 campaignTitle.text = data.judul
                 textFundCollected.text = data.danaTerkumpul.toRupiah()
-                val fundCollected = data.danaTerkumpul ?: 0
-                val fundTarget = data.targetDonasi ?: 0
+                val fundCollected = data.danaTerkumpul
+                val fundTarget = data.targetDonasi
 
                 val progressPercentage = (fundCollected.toDouble() / fundTarget.toDouble() * 100).toInt()
                 binding.progressBar.progress = progressPercentage

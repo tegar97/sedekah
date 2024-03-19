@@ -58,10 +58,10 @@ class DetailCampaign : AppCompatActivity() {
             binding.campaignTitle.text = detailCampaign.judul
             binding.fundTarget.text = detailCampaign.targetDonasi.toRupiah()
             binding.campaignDescription.text = detailCampaign.deskripsi
-            binding.campaignFundCollected.text = detailCampaign.danaTerkumpul?.toRupiah()
+            binding.campaignFundCollected.text = detailCampaign.danaTerkumpul.toRupiah()
 
-            val fundCollected = detailCampaign.danaTerkumpul ?: 0
-            val fundTarget = detailCampaign.targetDonasi ?: 0
+            val fundCollected = detailCampaign.danaTerkumpul
+            val fundTarget = detailCampaign.targetDonasi
 
             val progressPercentage =
                 (fundCollected.toDouble() / fundTarget.toDouble() * 100).toInt()
@@ -77,7 +77,7 @@ class DetailCampaign : AppCompatActivity() {
             var statusFavorite = detailCampaign.isFavorite
             setStatusFavorite(statusFavorite)
             binding.fabFavorite.setOnClickListener {
-                statusFavorite = !statusFavorite ?: false
+                statusFavorite = !statusFavorite
                 detailCampaignViewModel.setFavoriteCampaign(detailCampaign, statusFavorite)
                 setStatusFavorite(statusFavorite)
             }
